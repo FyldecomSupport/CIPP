@@ -314,6 +314,7 @@ const GeneralSettings = () => {
     return permissionName;
   }
   
+
   return (
     <div>
       <CRow className="mb-3">
@@ -323,10 +324,7 @@ const GeneralSettings = () => {
               <CCardTitle>Frontend Version</CCardTitle>
             </CCardHeader>
             <CCardBody>
-              <StatusIcon
-                type="negatedboolean"
-                status={isSuccessVersion && versions.OutOfDateCIPP}
-              />
+              <StatusIcon type="negatedboolean" status={isSuccessVersion && versions.OutOfDateCIPP} />
               <div>Latest: {isSuccessVersion ? versions.RemoteCIPPVersion : <Skeleton />}</div>
               <div>Current: {isSuccessVersion ? versions.LocalCIPPVersion : <Skeleton />}</div>
             </CCardBody>
@@ -338,10 +336,7 @@ const GeneralSettings = () => {
               <CCardTitle>API Version</CCardTitle>
             </CCardHeader>
             <CCardBody>
-              <StatusIcon
-                type="negatedboolean"
-                status={isSuccessVersion && versions.OutOfDateCIPPAPI}
-              />
+              <StatusIcon type="negatedboolean" status={isSuccessVersion && versions.OutOfDateCIPPAPI} />
               <div>Latest: {isSuccessVersion ? versions.RemoteCIPPAPIVersion : <Skeleton />}</div>
               <div>Current: {isSuccessVersion ? versions.LocalCIPPAPIVersion : <Skeleton />}</div>
             </CCardBody>
@@ -379,23 +374,23 @@ const GeneralSettings = () => {
                       </>
                     )}
                     {permissionsResult.data.Results?.MissingPermissions.length > 0 && (
-    <>
-      Your Secure Application Model is missing the following permissions. See the
-      documentation on how to add permissions{' '}
-      <a
-        target="_blank"
-        href="https://cipp.app/docs/user/gettingstarted/permissions/#manual-sam-setup"
-      >
-        here
-      </a>
-      .
-      <CListGroup flush>
-        {permissionsResult.data.Results?.MissingPermissions?.map((r, index) => (
-          <CListGroupItem key={index}>{modifyPermissionName(r)}</CListGroupItem>
-        ))}
-      </CListGroup>
-    </>
-  )}
+                      <>
+                        Your Secure Application Model is missing the following permissions. See the
+                        documentation on how to add permissions{' '}
+                        <a
+                          target="_blank"
+                          href="https://cipp.app/docs/user/gettingstarted/permissions/#manual-sam-setup"
+                        >
+                          here
+                        </a>
+                        .
+                        <CListGroup flush>
+                          {permissionsResult.data.Results?.MissingPermissions?.map((r, index) => (
+                            <CListGroupItem key={index}>{modifyPermissionName(r)}</CListGroupItem>
+                          ))}
+                        </CListGroup>
+                      </>
+                    )}
                   </CCallout>
                   {permissionsResult.data.Results?.AccessTokenDetails?.Name !== '' && (
                     <>
