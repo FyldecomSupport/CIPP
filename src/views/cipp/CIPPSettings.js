@@ -314,7 +314,6 @@ const GeneralSettings = () => {
     return permissionName;
   }
   
-
   return (
     <div>
       <CRow className="mb-3">
@@ -324,7 +323,10 @@ const GeneralSettings = () => {
               <CCardTitle>Frontend Version</CCardTitle>
             </CCardHeader>
             <CCardBody>
-              <StatusIcon type="negatedboolean" status={isSuccessVersion && versions.OutOfDateCIPP} />
+              <StatusIcon
+                type="negatedboolean"
+                status={isSuccessVersion && versions.OutOfDateCIPP}
+              />
               <div>Latest: {isSuccessVersion ? versions.RemoteCIPPVersion : <Skeleton />}</div>
               <div>Current: {isSuccessVersion ? versions.LocalCIPPVersion : <Skeleton />}</div>
             </CCardBody>
@@ -336,7 +338,10 @@ const GeneralSettings = () => {
               <CCardTitle>API Version</CCardTitle>
             </CCardHeader>
             <CCardBody>
-              <StatusIcon type="negatedboolean" status={isSuccessVersion && versions.OutOfDateCIPPAPI} />
+              <StatusIcon
+                type="negatedboolean"
+                status={isSuccessVersion && versions.OutOfDateCIPPAPI}
+              />
               <div>Latest: {isSuccessVersion ? versions.RemoteCIPPAPIVersion : <Skeleton />}</div>
               <div>Current: {isSuccessVersion ? versions.LocalCIPPAPIVersion : <Skeleton />}</div>
             </CCardBody>
@@ -387,6 +392,11 @@ const GeneralSettings = () => {
                         <CListGroup flush>
                           {permissionsResult.data.Results?.MissingPermissions?.map((r, index) => (
                             <CListGroupItem key={index}>{modifyPermissionName(r)}</CListGroupItem>
+                          ))}
+                        </CListGroup>
+                        <CListGroup flush>
+                          {permissionsResult.data.Results?.MissingPermissions?.map((r, index) => (
+                            <CListGroupItem key={index}>{r}</CListGroupItem>
                           ))}
                         </CListGroup>
                       </>
