@@ -305,15 +305,13 @@ const GeneralSettings = () => {
       restoreBackup({ path: '/api/ExecRestoreBackup', values: e.target.result })
     }
   }
-
   function modifyPermissionName(permissionName) {
     if (permissionName === 'ActivityFeed.Read') {
-      return 'ActivityFeed.Read - Delegated (Office 365 Management)';
+      return 'ActivityFeed.Read - Delegated (Office 365 Management)'
     }
     // If no modification needed, return the original permission name
-    return permissionName;
+    return permissionName
   }
-  
   return (
     <div>
       <CRow className="mb-3">
