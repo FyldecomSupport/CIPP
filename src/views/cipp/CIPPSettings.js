@@ -305,6 +305,16 @@ const GeneralSettings = () => {
       restoreBackup({ path: '/api/ExecRestoreBackup', values: e.target.result })
     }
   }
+
+    // Function to modify the permission name if needed
+function modifyPermissionName(permissionName) {
+  if (permissionName === 'ActivityFeed.Read') {
+    return 'ActivityFeed.Read - Delegated (Office 365 Management)';
+  }
+  // If no modification needed, return the original permission name
+  return permissionName;
+}
+  
   return (
     <div>
       <CRow className="mb-3">
@@ -370,23 +380,23 @@ const GeneralSettings = () => {
                       </>
                     )}
                     {permissionsResult.data.Results?.MissingPermissions.length > 0 && (
-                      <>
-                        Your Secure Application Model is missing the following permissions. See the
-                        documentation on how to add permissions{' '}
-                        <a
-                          target="_blank"
-                          href="https://cipp.app/docs/user/gettingstarted/permissions/#manual-sam-setup"
-                        >
-                          here
-                        </a>
-                        .
-                        <CListGroup flush>
-                          {permissionsResult.data.Results?.MissingPermissions?.map((r, index) => (
-                            <CListGroupItem key={index}>{r}</CListGroupItem>
-                          ))}
-                        </CListGroup>
-                      </>
-                    )}
+    <>
+      Your Secure Application Model is missing the following permissions. See the
+      documentation on how to add permissions{' '}
+      <a
+        target="_blank"
+        href="https://cipp.app/docs/user/gettingstarted/permissions/#manual-sam-setup"
+      >
+        here
+      </a>
+      .
+      <CListGroup flush>
+        {permissionsResult.data.Results?.MissingPermissions?.map((r, index) => (
+          <CListGroupItem key={index}>{modifyPermissionName(r)}</CListGroupItem>
+        ))}
+      </CListGroup>
+    </>
+  )}
                   </CCallout>
                   {permissionsResult.data.Results?.AccessTokenDetails?.Name !== '' && (
                     <>
