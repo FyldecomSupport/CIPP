@@ -306,14 +306,13 @@ const GeneralSettings = () => {
     }
   }
 
-    // Function to modify the permission name if needed
-function modifyPermissionName(permissionName) {
-  if (permissionName === 'ActivityFeed.Read') {
-    return 'ActivityFeed.Read - Delegated (Office 365 Management)';
+  function modifyPermissionName(permissionName) {
+    if (permissionName === 'ActivityFeed.Read') {
+      return 'ActivityFeed.Read - Delegated (Office 365 Management)';
+    }
+    // If no modification needed, return the original permission name
+    return permissionName;
   }
-  // If no modification needed, return the original permission name
-  return permissionName;
-}
   
   return (
     <div>
