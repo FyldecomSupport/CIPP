@@ -306,12 +306,12 @@ const GeneralSettings = () => {
     }
   }
   function modifyPermissionName(permissionName) {
-    if (permissionName === 'ActivityFeed.Read') {
-      return 'ActivityFeed.Read - Delegated (Office 365 Management)'
-    }
-    // If no modification needed, return the original permission name
-    return permissionName
+  if (permissionName === 'ActivityFeed.Read') {
+    return 'ActivityFeed.Read - Delegated (Office 365 Management)';
   }
+  // If no modification needed, return the original permission name
+  return permissionName;
+}
   return (
     <div>
       <CRow className="mb-3">
@@ -389,9 +389,9 @@ const GeneralSettings = () => {
                         .
                         <CListGroup flush>
                           {permissionsResult.data.Results?.MissingPermissions?.map((r, index) => (
-                             <CListGroupItem key={index}>{modifyPermissionName(r)}</CListGroupItem>
-                           ))}
-                        </CListGroup>
+                            <CListGroupItem key={index}>{modifyPermissionName(r)}</CListGroupItem>
+                            ))}
+                          </CListGroup>
                       </>
                     )}
                   </CCallout>
