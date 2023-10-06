@@ -144,7 +144,7 @@ const CIPPSettings = () => {
 }
 
 function modifyPermissionName(permissionName) {
-  if (permissionName === 'ActivityFeed.Read') {
+  if (permissionName === 'ActivityFeed.Read - Delegated') {
     return 'ActivityFeed.Read - Delegated (Office 365 Management)'
   }
   // If no modification needed, return the original permission name
