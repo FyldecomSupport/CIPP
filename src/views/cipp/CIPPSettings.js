@@ -305,13 +305,6 @@ const GeneralSettings = () => {
       restoreBackup({ path: '/api/ExecRestoreBackup', values: e.target.result })
     }
   }
-  function modifyPermissionName(permissionName) {
-  if (permissionName === 'ActivityFeed.Read') {
-    return 'ActivityFeed.Read - Delegated (Office 365 Management)';
-  }
-  // If no modification needed, return the original permission name
-  return permissionName;
-}
   return (
     <div>
       <CRow className="mb-3">
@@ -653,6 +646,14 @@ const ExcludedTenantsSettings = () => {
     } else {
       return <FontAwesomeIcon icon={faCheckCircle} className="text-success" />
     }
+  }
+
+  function modifyPermissionName(permissionName) {
+    if (permissionName === 'ActivityFeed.Read') {
+      return 'ActivityFeed.Read - Delegated (Office 365 Management)'
+    }
+    // If no modification needed, return the original permission name
+    return permissionName
   }
 
   function StatusText(graphErrorCount, lastGraphError) {
