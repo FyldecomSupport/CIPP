@@ -383,7 +383,7 @@ const GeneralSettings = () => {
                         <CListGroup flush>
                           {permissionsResult.data.Results?.MissingPermissions?.map((r, index) => (
                             <CListGroupItem key={index}>{modifyPermissionName(r)}</CListGroupItem>
-                           ))}
+                         ))}
                         </CListGroup>
                       </>
                     )}
