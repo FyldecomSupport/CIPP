@@ -161,7 +161,7 @@ const Home = () => {
     <>
       <CRow className="mb-3">
         <CCol>
-          <CippContentCard className="h-100" title="Lighthouse Search" icon={faSearch}>
+          <CippContentCard className="h-100" title="Global Search" icon={faSearch}>
             <CRow className="mb-3"></CRow>
             <CRow className="mb-3">
               <CCol>
