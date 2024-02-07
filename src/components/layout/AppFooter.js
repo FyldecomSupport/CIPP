@@ -10,21 +10,6 @@ const AppFooter = () => {
   return (
     <CFooter className="d-flex justify-content-between align-items-center" position="sticky">
       <div className="sponsors">
-        <p>
-          This application is sponsored by{' '}
-          <CLink href="https://www.huntress.com/">
-            <CImage src={huntressLogo} alt="Huntress" />
-          </CLink>{' '}
-          <CLink href="https://datto.com/">
-            <CImage src={dattoLogo} alt="Datto" />
-          </CLink>{' '}
-          <CLink href="https://rewst.io/">
-            <CImage src={rewstLogo} alt="Rewst" />
-          </CLink>{' '}
-          <CLink href="https://netfriends.com">
-            <CImage src={netfriends} alt="Netfriends" />
-          </CLink>
-        </p>
       </div>
       <nav className="footer-nav">
         <Link to="/license">License</Link>
