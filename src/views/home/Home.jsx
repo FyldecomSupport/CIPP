@@ -219,7 +219,7 @@ const Home = () => {
               </CippContentCard>
             </CCol>
             <CCol sm={12} md={6} xl={3} className="mb-3">
-              <CippContentCard title="Total Guests" icon={faHotel}>
+              <CippContentCard title="Total Guest Users" icon={faHotel}>
                 <Link
                   to={
                     '/identity/administration/users?customerId=' +
