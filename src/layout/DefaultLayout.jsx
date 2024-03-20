@@ -1,50 +1,50 @@
-import React, { useEffect, Suspense, useCallback } from 'react'
-import { AppFooter, AppHeader, AppSidebar } from 'src/components/layout'
-import { FullScreenLoading, ModalRoot, FastSwitcherModal, Toasts } from 'src/components/utilities'
-import { useDispatch, useSelector } from 'react-redux'
-import { Outlet } from 'react-router-dom'
-import { CContainer } from '@coreui/react'
-import { toggleSwitcher } from 'src/store/features/switcher'
-import { useHotkeys } from 'react-hotkeys-hook'
-import { useMediaPredicate } from 'react-media-hook'
+import React, { useEffect, Suspense, useCallback } from 'react';
+import { AppFooter, AppHeader, AppSidebar } from 'src/components/layout';
+import { FullScreenLoading, ModalRoot, FastSwitcherModal, Toasts } from 'src/components/utilities';
+import { useDispatch, useSelector } from 'react-redux';
+import { Outlet } from 'react-router-dom';
+import { CContainer } from '@coreui/react';
+import { toggleSwitcher } from 'src/store/features/switcher';
+import { useHotkeys } from 'react-hotkeys-hook';
+import { useMediaPredicate } from 'react-media-hook';
 
 const DefaultLayout = () => {
-  const preferredTheme = useMediaPredicate('(prefers-color-scheme: dark)') ? 'impact' : 'cyberdrain'
-  const themePreference = useSelector((state) => state.app.currentTheme)
-  const dispatch = useDispatch()
+  const preferredTheme = useMediaPredicate('(prefers-color-scheme: dark)') ? 'impact' : 'cyberdrain';
+  const themePreference = useSelector((state) => state.app.currentTheme);
+  const dispatch = useDispatch();
 
-  let theme
+  let theme;
   if (themePreference === 'default') {
-    theme = preferredTheme
+    theme = preferredTheme;
   } else {
-    theme = themePreference
+    theme = themePreference;
   }
   useEffect(() => {
-    document.body.classList = []
-    document.body.classList.add(`theme-${theme}`)
-    document.body.dataset.theme = theme
-  })
+    document.body.classList = [];
+    document.body.classList.add(`theme-${theme}`);
+    document.body.dataset.theme = theme;
+  }, [theme]);
 
   const handleFastSwitcher = useCallback(() => {
-    dispatch(toggleSwitcher())
-  }, [dispatch])
+    dispatch(toggleSwitcher());
+  }, [dispatch]);
 
   useHotkeys(
     'ctrl+k',
     (event) => {
-      handleFastSwitcher()
-      event.preventDefault()
+      handleFastSwitcher();
+      event.preventDefault();
     },
     { filterPreventDefault: false },
-  )
+  );
   useHotkeys(
     'cmd+k',
     (event) => {
-      handleFastSwitcher()
-      event.preventDefault()
+      handleFastSwitcher();
+      event.preventDefault();
     },
     { filterPreventDefault: false },
-  )
+  );
 
   return (
     <div>
@@ -53,7 +53,7 @@ const DefaultLayout = () => {
       <Toasts />
 
       <AppSidebar />
-      <div className="wrapper d-flex flex-column min-vh-100">
+      <div className="wrapper d-flex flex-column min-vh-100 bg-light">
         <AppHeader />
         <div className="body flex-grow-1 px-xl-3">
           <CContainer fluid>
@@ -61,9 +61,10 @@ const DefaultLayout = () => {
               <Outlet />
             </Suspense>
           </CContainer>
+        </div>
+      </div>
     </div>
-  </div>
-  )
-}
+  );
+};
 
-export default DefaultLayout
+export default DefaultLayout;
