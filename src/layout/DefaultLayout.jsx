@@ -61,9 +61,6 @@ const DefaultLayout = () => {
               <Outlet />
             </Suspense>
           </CContainer>
-        </div>
-        <AppFooter />
-      </div>
     </div>
   )
 }
