@@ -46,23 +46,24 @@ const DefaultLayout = () => {
     { filterPreventDefault: false },
   )
 
-  return (
-    <div>
-      <FastSwitcherModal />
-      <ModalRoot />
-      <Toasts />
+return (
+  <div>
+    <FastSwitcherModal />
+    <ModalRoot />
+    <Toasts />
 
-      <AppSidebar />
-      <div className="wrapper d-flex flex-column min-vh-100">
-        <AppHeader />
-        <div className="body flex-grow-1 px-xl-3">
-          <CContainer fluid>
-            <Suspense fallback={<FullScreenLoading />}>
-              <Outlet />
-            </Suspense>
-          </CContainer>
+    <AppSidebar />
+    <div className="wrapper d-flex flex-column min-vh-100">
+      <AppHeader />
+      <div className="body flex-grow-1 px-xl-3">
+        <CContainer fluid>
+          <Suspense fallback={<FullScreenLoading />}>
+            <Outlet />
+          </Suspense>
+        </CContainer>
+      </div>
     </div>
-  )
-}
+  </div>
+);
 
 export default DefaultLayout
