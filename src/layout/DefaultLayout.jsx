@@ -62,6 +62,7 @@ const DefaultLayout = () => {
             </Suspense>
           </CContainer>
     </div>
+  </div>
   )
 }
 
