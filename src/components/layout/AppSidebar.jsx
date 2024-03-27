@@ -34,7 +34,7 @@ const AppSidebar = () => {
       <CSidebarBrand className="me-auto pt-xs-2 p-md-2" to="/">
         <CImage
           className="sidebar-brand-full mt-3"
-          src={placeholderImage}
+          src={i}
           height={30}
           style={{ paddingLeft: '50px' }}
         />
