@@ -100,7 +100,7 @@ const DefaultLayout = () => {
               </Suspense>
             </CContainer>
           </div>
-          <AppFooter />
+          
         </div>
       </div>
     </>
